@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="css/stylecss" th:href="@{css/style.css}" />
+</head>
+<body>
+<h1>Edit event</h1>
+<div>
+    <form th:object="${event}" th:action="@{../save}" action="#" method="post">
+        <input type="hidden" th:field="*{id}" class="form-control"/>
+        <input type="hidden" th:field="*{user}" class="form-control" />
+        <label for="date">Date</label>
+        <input type="date" id="date" th:field="*{date}" />
+        <div class="div-hidden" />
+        <label for="time">Time</label>
+        <input type="time" id="time" th:field="*{time}" />
+        <div class="div-hidden" />
+        <label for="categorylist">Category</label>
+        <select id="categorylist" th:field="*{category}" class="form-control">
+            <option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+        </select>
+        <div class="div-hidden" />
+        <label for="description">Description</label>
+        <input type="text" id="description" th:field="*{description}" />
+        <div class="div-hidden" />
+        <input type="submit" value="Save"></input>
+    </form>
+</div>
+</body>
+</html>
