@@ -33,7 +33,7 @@
         <th></th>
         <th></th>
     </tr>
-    <tr th:each = "event: ${events}" th:if="${event.user == #authentication.name}">
+    <tr th:each = "event: ${events}" th:if="${event.username == #authentication.name}">
         <td th:text="${event.date}"></td>
         <td th:text="${event.time}"></td>
         <td th:text="${event.category.name}"></td>

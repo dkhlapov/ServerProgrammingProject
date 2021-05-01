@@ -11,7 +11,7 @@
 <div>
     <form th:object="${event}" th:action="@{../save}" action="#" method="post">
         <input type="hidden" th:field="*{id}" class="form-control"/>
-        <input type="hidden" th:field="*{user}" class="form-control" />
+        <input type="hidden" th:field="*{username}" class="form-control" />
         <label for="date">Date</label>
         <input type="date" id="date" th:field="*{date}" />
         <div class="div-hidden" />

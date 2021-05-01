@@ -10,7 +10,7 @@
 <h1>Add an event</h1>
 <div>
     <form th:object="${event}" th:action="@{save}" action="#" method="post">
-        <input type="hidden" name="user" id="user" th:value = "${#authentication.name}" class="form-control" />
+        <input type="hidden" name="username" id="username" th:value = "${#authentication.name}" class="form-control" />
         <label for="date">Date</label>
         <input type="date" id="date" th:field="*{date}" />
         <div class="div-hidden" />
