@@ -21,7 +21,7 @@ public class DBTest {
     @Test
     public void findAllByDateShouldReturnAUser(){
         List<Event> events = eventRepository.findAllByDate("2021-12-31");
-        assertThat(events.get(0).getUser()).isEqualTo("1");
+        assertThat(events.get(0).getUsername()).isEqualTo("1");
     }
     @Test
     public void createNewEvent(){

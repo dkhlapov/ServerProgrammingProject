@@ -12,7 +12,7 @@ public class Event {
     private String time;
     private String description;
     private String date;
-    private String user;
+    private String username;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
@@ -23,11 +23,11 @@ public class Event {
     public Event() {
     }
 
-    public Event(String time, String description, String date, String user, Category category) {
+    public Event(String time, String description, String date, String username, Category category) {
         this.time = time;
         this.description = description;
         this.date = date;
-        this.user = user;
+        this.username = username;
         this.category = category;
     }
 
@@ -71,11 +71,11 @@ public class Event {
         this.category = category;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
