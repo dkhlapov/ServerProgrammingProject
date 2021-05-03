@@ -9,6 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @SpringBootApplication
 public class ProjectApplication {
 
@@ -25,7 +28,7 @@ public class ProjectApplication {
             categoryRepository.save(new Category("Groceries"));
             categoryRepository.save(new Category("Meeting"));
 
-            eventRepository.save(new Event("12:30", "Test event", "2021-12-31", "1", categoryRepository.findCategoryByName("Meeting").get(0)));
+            eventRepository.save(new Event(LocalTime.of(15, 40), "Test event", LocalDate.of(2021, 12, 31), "1", categoryRepository.findCategoryByName("Meeting").get(0)));
         };
     }
 }

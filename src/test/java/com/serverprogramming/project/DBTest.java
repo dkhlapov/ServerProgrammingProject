@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,12 +22,12 @@ public class DBTest {
     private EventRepository eventRepository;
     @Test
     public void findAllByDateShouldReturnAUser(){
-        List<Event> events = eventRepository.findAllByDate("2021-12-31");
+        List<Event> events = eventRepository.findAllByDate(LocalDate.of(2021, 12, 31));
         assertThat(events.get(0).getUsername()).isEqualTo("1");
     }
     @Test
     public void createNewEvent(){
-        Event event = new Event("15:30", "Test test event", "2021-05-03", "2", new Category("Test category"));
+        Event event = new Event(LocalTime.of(15, 00), "Test test event", LocalDate.of(2021, 05, 03), "2", new Category("Test category"));
         eventRepository.save(event);
         assertThat(event.getId()).isNotNull();
     }
